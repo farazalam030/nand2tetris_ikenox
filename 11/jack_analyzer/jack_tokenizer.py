@@ -2,13 +2,6 @@ from const import *
 from token import *
 
 
-token_convert = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;'
-}
-
-
 class JackTokenizer():
     def __init__(self, filepath):
         self.current_token = None

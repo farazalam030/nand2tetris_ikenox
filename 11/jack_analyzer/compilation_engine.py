@@ -156,8 +156,8 @@ class CompilationEngine():
 
     def compile_subroutine_body(self, subroutine_name, subroutine_dec_token):
         self.write_element_start('subroutineBody')
-
-        print(subroutine_name, subroutine_dec_token)
+        if __debug__:
+            print(subroutine_name, subroutine_dec_token)
 
         self.compile_symbol(Tokens.LEFT_CURLY_BRACKET)
         local_num = 0
@@ -183,11 +183,11 @@ class CompilationEngine():
         self.compile_symbol(Tokens.RIGHT_CURLY_BRACKET)
 
         self.write_element_end('subroutineBody')
-
-        print("=========")
-        for key in self.symbol_table.arg_table:
-            print(self.symbol_table.arg_table[key].type, key, "kind:",
-                  self.symbol_table.arg_table[key].kind, "index:", self.symbol_table.arg_table[key].index)
+        if __debug__:
+            print("=========")
+            for key in self.symbol_table.arg_table:
+                print(self.symbol_table.arg_table[key].type, key, "kind:",
+                    self.symbol_table.arg_table[key].kind, "index:", self.symbol_table.arg_table[key].index)
 
         return local_num
 
@@ -370,7 +370,7 @@ class CompilationEngine():
         while self.next_is([
             Tokens.PLUS,
             Tokens.MINUS,
-            Tokens.MULTI,
+            Tokens.MULTIPLY,
             Tokens.DIV,
             Tokens.AND,
             Tokens.PIPE,
@@ -380,7 +380,7 @@ class CompilationEngine():
             op_token = self.compile_symbol([
                 Tokens.PLUS,
                 Tokens.MINUS,
-                Tokens.MULTI,
+                Tokens.MULTIPLY,
                 Tokens.DIV,
                 Tokens.AND,
                 Tokens.PIPE,
@@ -392,7 +392,7 @@ class CompilationEngine():
                 self.vmw.write_arithmetic(Command.ADD)
             elif op_token == Tokens.MINUS:
                 self.vmw.write_arithmetic(Command.SUB)
-            elif op_token == Tokens.MULTI:
+            elif op_token == Tokens.MULTIPLY:
                 self.vmw.write_call('Math.multiply', 2)
             elif op_token == Tokens.DIV:
                 self.vmw.write_call('Math.divide', 2)

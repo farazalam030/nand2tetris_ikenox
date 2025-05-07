@@ -114,7 +114,7 @@ class Tokens:
     SEMI_COLON = Symbol(';')
     PLUS = Symbol('+')
     MINUS = Symbol('-')
-    MULTI = Symbol('*')
+    MULTIPLY = Symbol('*')
     DIV = Symbol('/')
     AND = Symbol('&', token_escaped='&amp;')
     PIPE = Symbol('|')
@@ -161,7 +161,7 @@ STR_TO_TOKEN = {
     ';': Tokens.SEMI_COLON,
     '+': Tokens.PLUS,
     '-': Tokens.MINUS,
-    '*': Tokens.MULTI,
+    '*': Tokens.MULTIPLY,
     '/': Tokens.DIV,
     '&': Tokens.AND,
     '|': Tokens.PIPE,
