@@ -29,7 +29,7 @@ def main():
 def compile(filepath):
     with VmWriter(filepath[:-5] + ".vm") as code_writer:
         with CompilationEngine(filepath, code_writer) as ce:
-            print "compiling %s ..." % filepath
+            print("compiling " + filepath)
             ce.compile()
 
 if __name__ == '__main__':

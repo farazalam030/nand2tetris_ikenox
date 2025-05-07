@@ -1,0 +1,9 @@
+OSPATHH="/mnt/c/Users/Faraz/Downloads/nand2tetris/nand2tetris/tools/OS"
+
+cp ${OSPATHH}/* Average/
+cp ${OSPATHH}/* ComplexArrays/
+cp ${OSPATHH}/* ConvertToBin/
+cp ${OSPATHH}/* Pong/
+cp ${OSPATHH}/* Seven/
+cp ${OSPATHH}/* Square/
+

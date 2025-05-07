@@ -5,7 +5,7 @@ from symbol_table import SymbolTable
 
 class CompilationEngine():
     def __init__(self, filepath, vm_writer):
-        self.wf = open(filepath[:-5] + ".myImpl.xml", 'w')
+        self.wf = open(filepath[:-5] + "CE.xml", 'w')
         self.tokenizer = JackTokenizer(filepath)
         self.symbol_table = SymbolTable()
         self.vmw = vm_writer
@@ -157,7 +157,7 @@ class CompilationEngine():
     def compile_subroutine_body(self, subroutine_name, subroutine_dec_token):
         self.write_element_start('subroutineBody')
 
-        print subroutine_name,subroutine_dec_token
+        print(subroutine_name, subroutine_dec_token)
 
         self.compile_symbol(Tokens.LEFT_CURLY_BRACKET)
         local_num = 0
@@ -184,9 +184,10 @@ class CompilationEngine():
 
         self.write_element_end('subroutineBody')
 
-        print "========="
+        print("=========")
         for key in self.symbol_table.arg_table:
-            print self.symbol_table.arg_table[key].type,key,"kind:",self.symbol_table.arg_table[key].kind,"index:",self.symbol_table.arg_table[key].index
+            print(self.symbol_table.arg_table[key].type, key, "kind:",
+                  self.symbol_table.arg_table[key].kind, "index:", self.symbol_table.arg_table[key].index)
 
         return local_num
 

@@ -18,7 +18,7 @@ class JackTokenizer():
 
         self.readfile = open(filepath)
 
-        with open(filepath[:-5] + "T.myImpl.xml", 'w') as writef:
+        with open(filepath[:-5] + "TKN.xml", 'w') as writef:
             writef.write('<tokens>\n')
             while 1:
                 token = self.parse_next_token()
