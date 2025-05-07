@@ -81,54 +81,82 @@ class StringConstant(Token):
 
 
 class Tokens:
-    CLASS = Keyword('class')
-    METHOD = Keyword('method')
-    FUNCTION = Keyword('function')
-    CONSTRUCTOR = Keyword('constructor')
-    INT = Keyword('int')
-    BOOLEAN = Keyword('boolean')
-    CHAR = Keyword('char')
-    VOID = Keyword('void')
-    VAR = Keyword('var')
-    STATIC = Keyword('static')
-    FIELD = Keyword('field')
-    LET = Keyword('let')
-    DO = Keyword('do')
-    IF = Keyword('if')
-    ELSE = Keyword('else')
-    WHILE = Keyword('while')
-    RETURN = Keyword('return')
-    TRUE = Keyword('true')
-    FALSE = Keyword('false')
-    NULL = Keyword('null')
-    THIS = Keyword('this')
+    fa_keywords = {'class':  'class',
+                'method':  'method',
+                'function':  'function',
+                'constructor':  'constructor',
+                'int':  'int',
+                'boolean':  'boolean',
+                'char':  'char',
+                'void':  'void',
+                'var':  'var',
+                'static':  'static',
+                'field':  'field',
+                'let':  'let',
+                'do':  'do',
+                'if':  'if',
+                'else':  'else',
+                'while':  'while',
+                'return':  'return',
+                'true':  'true',
+                'false':  'false',
+                'null':  'null',
+                'this':  'this',
+                'new':  'new'
+            }
 
-    LEFT_CURLY_BRACKET = Symbol('{')
-    RIGHT_CURLY_BRACKET = Symbol('}')
-    LEFT_ROUND_BRACKET = Symbol('(')
-    RIGHT_ROUND_BRACKET = Symbol(')')
-    LEFT_BOX_BRACKET = Symbol('[')
-    RIGHT_BOX_BRACKET = Symbol(']')
-    DOT = Symbol('.')
-    COMMA = Symbol(',')
-    SEMI_COLON = Symbol(';')
-    PLUS = Symbol('+')
-    MINUS = Symbol('-')
-    MULTIPLY = Symbol('*')
-    DIV = Symbol('/')
-    AND = Symbol('&', token_escaped='&amp;')
-    PIPE = Symbol('|')
-    LESS_THAN = Symbol('<', token_escaped='&lt;')
-    GREATER_THAN = Symbol('>', token_escaped='&gt;')
-    EQUAL = Symbol('=')
-    TILDE = Symbol('~')
+    fa_symbols = {'{': '{', '}': '}', '(': '(', ')': ')', '[': '[', ']': ']', '.': '.', ';': ';', '+': '+', '-': '-', '*': '*',
+   '/': '/', '&': '&', '|': '|', '<': '<', '>': '>', '=': '=', '~': '~', '/*': '/*', '*/': '*/', '//': '//', ',': ','}
 
-    COMMENT_START = Symbol('/*')
-    COMMENT_END = Symbol('*/')
-    LINE_COMMENT_START = Symbol('//')
+    CLASS= Keyword('class')
+    METHOD= Keyword('method')
+    FUNCTION= Keyword('function')
+    CONSTRUCTOR= Keyword('constructor')
+    INT= Keyword('int')
+    BOOLEAN= Keyword('boolean')
+    CHAR= Keyword('char')
+    VOID= Keyword('void')
+    VAR= Keyword('var')
+    STATIC= Keyword('static')
+    FIELD= Keyword('field')
+    LET= Keyword('let')
+    DO= Keyword('do')
+    IF= Keyword('if')
+    ELSE= Keyword('else')
+    WHILE= Keyword('while')
+    RETURN= Keyword('return')
+    TRUE= Keyword('true')
+    FALSE= Keyword('false')
+    NULL= Keyword('null')
+    THIS= Keyword('this')
+
+    LEFT_CURLY_BRACKET= Symbol('{')
+    RIGHT_CURLY_BRACKET= Symbol('}')
+    LEFT_ROUND_BRACKET= Symbol('(')
+    RIGHT_ROUND_BRACKET= Symbol(')')
+    LEFT_BOX_BRACKET= Symbol('[')
+    RIGHT_BOX_BRACKET= Symbol(']')
+    DOT= Symbol('.')
+    COMMA= Symbol(',')
+    SEMI_COLON= Symbol(';')
+    PLUS= Symbol('+')
+    MINUS= Symbol('-')
+    MULTIPLY= Symbol('*')
+    DIV= Symbol('/')
+    AND= Symbol('&', token_escaped='&amp;')
+    PIPE= Symbol('|')
+    LESS_THAN= Symbol('<', token_escaped='&lt;')
+    GREATER_THAN= Symbol('>', token_escaped='&gt;')
+    EQUAL= Symbol('=')
+    TILDE= Symbol('~')
+
+    COMMENT_START= Symbol('/*')
+    COMMENT_END= Symbol('*/')
+    LINE_COMMENT_START= Symbol('//')
 
 
-STR_TO_TOKEN = {
+STR_TO_TOKEN= {
+
     'class': Tokens.CLASS,
     'constructor': Tokens.CONSTRUCTOR,
     'function': Tokens.FUNCTION,
@@ -171,6 +199,8 @@ STR_TO_TOKEN = {
     '~': Tokens.TILDE,
     '/*': Tokens.COMMENT_START,
     '*/': Tokens.COMMENT_END,
+
+
 }
 
 IDENTIFIER_PATTERN = re.compile(r'^[A-Za-z_][A-Za-z0-9_]*$')
