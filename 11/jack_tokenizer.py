@@ -8,6 +8,7 @@ class JackTokenizer():
         self.linenum = 0
         self.remained_line = ''
         self.remained_tokens = []
+        self.tokenizersTokenList = []
 
         self.readfile = open(filepath)
 
@@ -29,11 +30,14 @@ class JackTokenizer():
                         elem_name = 'integerConstant'
 
                     self.remained_tokens.append(token)
-
-                    writef.write("<%s> %s </%s>\n" % (elem_name, token.token_escaped, elem_name))
+                    xmlString= f'<%s> %s </%s>\n' % (elem_name, token.token_escaped, elem_name)
+                    self.tokenizersTokenList.append(xmlString)
+                    writef.write(xmlString)
                 else:
                     break
             writef.write('</tokens>\n')
+        if __debug__:
+            print(self.tokenizersTokenList)
         self.readfile.close()
 
     def _readline(self):
